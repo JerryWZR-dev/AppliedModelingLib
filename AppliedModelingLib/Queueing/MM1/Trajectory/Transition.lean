@@ -72,7 +72,7 @@ theorem stationaryTrajMeasure_zero_pair_succ_recurrence
   let lastState : ((i : Finset.Iic n) → α) → α :=
     fun y => y ⟨n, Finset.mem_Iic.mpr le_rfl⟩
   let initialAndLast : ((i : Finset.Iic n) → α) → α × α :=
-    fun y => (y ⟨0, Finset.mem_Iic.mpr (zero_le n)⟩,
+    fun y => (y ⟨0, Finset.mem_Iic.mpr zero_le⟩,
       y ⟨n, Finset.mem_Iic.mpr le_rfl⟩)
   let historyNext : (ℕ → α) → ((i : Finset.Iic n) → α) × α :=
     fun x => (hist x, x (n + 1))

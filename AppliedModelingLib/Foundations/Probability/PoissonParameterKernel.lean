@@ -32,6 +32,6 @@ noncomputable def poissonParameterKernel : Kernel ℝ≥0 ℕ where
       exact measurable_const
 
 instance : IsMarkovKernel poissonParameterKernel where
-  isProbabilityMeasure _ := isProbabilityMeasure_poissonMeasure _
+  isProbabilityMeasure r := (inferInstance : IsProbabilityMeasure (poissonMeasure r))
 
 end AppliedModelingLib.Probability

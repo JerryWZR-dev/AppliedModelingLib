@@ -1,3 +1,4 @@
+import AppliedModelingLib.Queueing.MM1.GeometricCompat
 import AppliedModelingLib.Queueing.MM1.Stationary
 import AppliedModelingLib.Foundations.Probability.PoissonProcess
 import AppliedModelingLib.Foundations.Probability.PMFKernel
@@ -316,10 +317,10 @@ theorem geoNNPMF_eq_geometricPMF
 theorem geoNNPMF_toMeasure_eq_geometricMeasure
     (rho : ℝ≥0) (hrho : rho < 1) :
     (geoNNPMF rho hrho).toMeasure =
-      geometricMeasure (p := 1 - (rho : ℝ))
+      geometricMeasureOld (p := 1 - (rho : ℝ))
         (sub_pos.mpr (by exact_mod_cast hrho))
         (sub_le_self 1 (by positivity : 0 ≤ (rho : ℝ))) := by
-  unfold geometricMeasure
+  unfold geometricMeasureOld
   exact congrArg PMF.toMeasure (geoNNPMF_eq_geometricPMF rho hrho)
 
 lemma reflectedBirthDeathKernel_apply
@@ -468,7 +469,7 @@ theorem mm1TrafficIntensityNN_lt_one
     mm1TrafficIntensityNN arrivalRate serviceRate < 1 := by
   unfold mm1TrafficIntensityNN
   have hservice_pos : 0 < serviceRate :=
-    lt_of_le_of_lt (zero_le arrivalRate) hstable
+    lt_of_le_of_lt zero_le hstable
   apply (div_lt_one₀ hservice_pos).mpr
   exact hstable
 
@@ -511,7 +512,7 @@ theorem mm1_uniformized_geometric_stationary
       (geoNNPMF (mm1TrafficIntensityNN arrivalRate serviceRate)
         (mm1TrafficIntensityNN_lt_one hstable)) := by
   have hservice_pos : 0 < serviceRate :=
-    lt_of_le_of_lt (zero_le arrivalRate) hstable
+    lt_of_le_of_lt zero_le hstable
   have hp := uniformizedBirthProbability_eq_rate_fraction
     (arrivalRate := arrivalRate) (serviceRate := serviceRate) hservice_pos
   have hK :

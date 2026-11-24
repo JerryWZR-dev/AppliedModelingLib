@@ -26,7 +26,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_integral_falseMarkR
     (harrival_pos : 0 < arrivalRate) (hstable : arrivalRate < serviceRate) :
     let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
     let hrate : 0 < rate := by
-      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
     let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
     let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
     let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -41,7 +41,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_integral_falseMarkR
   dsimp only
   let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
   let hrate : 0 < rate := by
-    exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+    exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
   let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
   let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
   let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos

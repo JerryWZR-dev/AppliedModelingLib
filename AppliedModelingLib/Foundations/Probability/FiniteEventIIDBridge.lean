@@ -550,7 +550,7 @@ theorem tsum_lintegral_externalInitial_finiteEventTrajectoryNonnegativeReward_ne
       _ ≤ ∑ x ∈ (Finset.univ : Finset σ), f n x := by
         apply Finset.sum_le_sum
         intro x hx
-        apply mul_le_of_le_one_right (zero_le _)
+        apply mul_le_of_le_one_right (by simp)
         calc
           ρ {x} ≤ ρ Set.univ := measure_mono (Set.subset_univ _)
           _ = 1 := IsProbabilityMeasure.measure_univ

@@ -293,7 +293,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_preArrivalQueueLeng
     {t : ℝ} (ht : 0 ≤ t) :
     let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
     let hrate : 0 < rate := by
-      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
     let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
     let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
     let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -328,7 +328,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_preArrivalQueueLeng
       (rate := ((arrivalRate + serviceRate : ℝ≥0) : ℝ))
       (t := t)
       (by exact_mod_cast
-        (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate)))
+        (add_pos_of_pos_of_nonneg harrival_pos zero_le))
       (mm1TrafficIntensityNN arrivalRate serviceRate)
       (mm1TrafficIntensityNN_lt_one hstable)
       (mm1TrafficIntensityNN_pos harrival_pos (lt_trans harrival_pos hstable)) ht
@@ -350,7 +350,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_postTagFalseMarkCou
     {t : ℝ} (ht : 0 ≤ t) :
     let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
     let hrate : 0 < rate := by
-      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
     let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
     let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
     let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -389,7 +389,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_preArrivalQueueLeng
     {t : ℝ} (ht : 0 ≤ t) :
     let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
     let hrate : 0 < rate := by
-      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
     let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
     let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
     let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -405,7 +405,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_preArrivalQueueLeng
   exact
     geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_preArrivalQueueLength_indep_postTagFalseMarkCount
       (by exact_mod_cast
-        (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate)))
+        (add_pos_of_pos_of_nonneg harrival_pos zero_le))
       (mm1TrafficIntensityNN arrivalRate serviceRate)
       (mm1TrafficIntensityNN_lt_one hstable)
       (mm1TrafficIntensityNN_pos harrival_pos (lt_trans harrival_pos hstable)) ht
@@ -418,7 +418,7 @@ noncomputable def geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_postTagFa
     (harrival_pos : 0 < arrivalRate) (hstable : arrivalRate < serviceRate) :
     let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
     let hrate : 0 < rate := by
-      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
     let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
     let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
     let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -441,7 +441,7 @@ noncomputable def geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_postTagFa
   calc
     _ = PoissonProcess.countLikelihood (serviceRate : ℝ) z k :=
       PoissonProcess.hasLaw_poissonMeasure_real_singleton_eq_countLikelihood
-        (mul_nonneg (by exact_mod_cast (zero_le serviceRate)) hz)
+        (mul_nonneg (by exact_mod_cast zero_le) hz)
         (geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_postTagFalseMarkCount_hasLaw_poisson_of_rates
           harrival_pos hstable hz) k
     _ = PoissonProcess.countLikelihood 1 ((serviceRate : ℝ) * z) k := by
@@ -596,7 +596,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_ae_falseMarkPrefix_
     (harrival_pos : 0 < arrivalRate) (hstable : arrivalRate < serviceRate) :
     let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
     let hrate : 0 < rate := by
-      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
     let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
     let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
     let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -610,7 +610,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_ae_falseMarkPrefix_
   dsimp only
   let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
   let hrate : 0 < rate := by
-    exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+    exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
   let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
   let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
   let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -669,7 +669,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_ae_falseMarkPrefix_
       simpa [P, selected, rate, rho, hrho, hrho_pos,
         PoissonProcess.countLikelihood] using
         (PoissonProcess.hasLaw_poissonMeasure_real_singleton_eq_countLikelihood
-          (mul_nonneg (by exact_mod_cast (zero_le serviceRate)) ht)
+          (mul_nonneg (by exact_mod_cast zero_le) ht)
           hcount_law k)
     calc
       P.real {z | postTagFalseMarkCount t z ≤ (z.2 0).1} =
@@ -700,7 +700,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_ae_postTagFalseMark
     (harrival_pos : 0 < arrivalRate) (hstable : arrivalRate < serviceRate) :
     let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
     let hrate : 0 < rate := by
-      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
     let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
     let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
     let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -713,7 +713,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_ae_postTagFalseMark
       0 ≤ postTagFalseMarkBusyUntil (z.2 0).1 z := by
   dsimp only
   have hrate : 0 < ((arrivalRate + serviceRate : ℝ≥0) : ℝ) := by
-    exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+    exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
   have hrho : mm1TrafficIntensityNN arrivalRate serviceRate < 1 :=
     mm1TrafficIntensityNN_lt_one hstable
   have hrho_pos : 0 < mm1TrafficIntensityNN arrivalRate serviceRate :=
@@ -732,7 +732,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_ae_postTagFalseMark
     (harrival_pos : 0 < arrivalRate) (hstable : arrivalRate < serviceRate) :
     let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
     let hrate : 0 < rate := by
-      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
     let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
     let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
     let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -746,7 +746,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_ae_postTagFalseMark
         postTagFalseMarkResponseFromState z := by
   dsimp only
   have hrate : 0 < ((arrivalRate + serviceRate : ℝ≥0) : ℝ) := by
-    exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+    exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
   have hrho : mm1TrafficIntensityNN arrivalRate serviceRate < 1 :=
     mm1TrafficIntensityNN_lt_one hstable
   have hrho_pos : 0 < mm1TrafficIntensityNN arrivalRate serviceRate :=
@@ -772,7 +772,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_ae_postTagFalseMark
     (harrival_pos : 0 < arrivalRate) (hstable : arrivalRate < serviceRate) :
     let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
     let hrate : 0 < rate := by
-      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
     let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
     let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
     let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -785,7 +785,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_ae_postTagFalseMark
       0 < postTagFalseMarkTaggedServiceWork (serviceRate : ℝ) (z.2 0).1 z 0 := by
   dsimp only
   have hrate : 0 < ((arrivalRate + serviceRate : ℝ≥0) : ℝ) := by
-    exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+    exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
   have hrho : mm1TrafficIntensityNN arrivalRate serviceRate < 1 :=
     mm1TrafficIntensityNN_lt_one hstable
   have hrho_pos : 0 < mm1TrafficIntensityNN arrivalRate serviceRate :=
@@ -844,7 +844,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_strict_falseMarkRes
     {t : ℝ} (ht : 0 ≤ t) :
     let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
     let hrate : 0 < rate := by
-      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
     let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
     let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
     let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -859,7 +859,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_strict_falseMarkRes
   dsimp only
   let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
   let hrate : 0 < rate := by
-    exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+    exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
   let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
   let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
   let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -911,7 +911,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_strict_falseMarkRes
     simpa [P, selected, rate, rho, hrho, hrho_pos,
       PoissonProcess.countLikelihood] using
       (PoissonProcess.hasLaw_poissonMeasure_real_singleton_eq_countLikelihood
-        (mul_nonneg (by exact_mod_cast (zero_le serviceRate)) ht)
+        (mul_nonneg (by exact_mod_cast zero_le) ht)
         hcount_law k)
   have hhit :=
     geoNNPMF_uniformized_forwardReverseMarkedSelectedTag_ae_falseMarkPrefix_reaches_preArrivalQueue_of_rates

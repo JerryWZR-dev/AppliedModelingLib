@@ -213,7 +213,7 @@ theorem lateBatchArrivalTraceTerminalTime_reverseRemotePastIncrement
       remotePastCumulativeNetInput service N := by
   unfold lateBatchArrivalTraceTerminalTime
   simpa [remotePastCumulativeNetInput] using
-    (sum_range_reverseRemotePastIncrement_eq_cumulative_sub service 0 N (zero_le N))
+    (sum_range_reverseRemotePastIncrement_eq_cumulative_sub service 0 N (Nat.zero_le N))
 
 /-- The reverse remote-past physical trace has exactly the actual backwards
 arrival epochs and marks of its finite input block. -/

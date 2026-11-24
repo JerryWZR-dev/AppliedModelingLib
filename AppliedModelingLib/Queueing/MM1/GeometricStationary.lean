@@ -1,3 +1,4 @@
+import AppliedModelingLib.Queueing.MM1.GeometricCompat
 import Mathlib.Probability.Distributions.Geometric
 import Mathlib.Probability.Independence.Basic
 
@@ -32,9 +33,9 @@ lemma geometricPMF_real_apply
 
 theorem measureReal_geometricMeasure_tail
     (rho : ℝ) (hrho_nonneg : 0 ≤ rho) (hrho_lt_one : rho < 1) (k : ℕ) :
-    (geometricMeasure (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
+    (geometricMeasureOld (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
       (sub_le_self 1 hrho_nonneg)).real {n : ℕ | k ≤ n} = rho ^ k := by
-  simp only [geometricMeasure, Measure.real, PMF.toMeasure_apply_eq_tsum]
+  simp only [geometricMeasureOld, Measure.real, PMF.toMeasure_apply_eq_tsum]
   rw [ENNReal.tsum_toReal_eq]
   · have hterm : ∀ a : ℕ,
         (({n : ℕ | k ≤ n}).indicator
@@ -95,16 +96,16 @@ theorem indepFun_geometricQueueLength_prod
     (service : Ω → S) (hservice : Measurable service)
     (rho : ℝ) (hrho_nonneg : 0 ≤ rho) (hrho_lt_one : rho < 1) :
     IndepFun (fun x : ℕ × Ω => x.1) (fun x => service x.2)
-      ((geometricMeasure (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
+      ((geometricMeasureOld (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
         (sub_le_self 1 hrho_nonneg)).prod P) := by
   letI : IsProbabilityMeasure
-      (geometricMeasure (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
+      (geometricMeasureOld (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
         (sub_le_self 1 hrho_nonneg)) :=
-    isProbabilityMeasure_geometricMeasure (sub_pos.mpr hrho_lt_one)
+    isProbabilityMeasure_geometricMeasureOld (sub_pos.mpr hrho_lt_one)
       (sub_le_self 1 hrho_nonneg)
   simpa only [id_eq] using
     (indepFun_prod
-      (μ := geometricMeasure (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
+      (μ := geometricMeasureOld (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
         (sub_le_self 1 hrho_nonneg)) (ν := P)
       (X := id) (Y := service) measurable_id hservice)
 
@@ -113,12 +114,12 @@ theorem measureReal_geometricQueueLength_prod_tail
     {Ω : Type*} [MeasurableSpace Ω]
     (P : Measure Ω) [IsProbabilityMeasure P]
     (rho : ℝ) (hrho_nonneg : 0 ≤ rho) (hrho_lt_one : rho < 1) (k : ℕ) :
-    ((geometricMeasure (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
+    ((geometricMeasureOld (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
       (sub_le_self 1 hrho_nonneg)).prod P).real
       (Prod.fst ⁻¹' Set.Ici k) = rho ^ k := by
   rw [Measure.real,
     (measurePreserving_fst
-      (μ := geometricMeasure (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
+      (μ := geometricMeasureOld (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
         (sub_le_self 1 hrho_nonneg)) (ν := P)).measure_preimage
       measurableSet_Ici.nullMeasurableSet]
   exact measureReal_geometricMeasure_tail rho hrho_nonneg hrho_lt_one k

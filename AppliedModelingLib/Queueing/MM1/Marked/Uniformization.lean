@@ -85,7 +85,7 @@ theorem total_uniformized_rate_mul_birthProbability
   rw [uniformizedBirthProbability_eq_rate_fraction hservice_pos]
   apply NNReal.eq
   norm_cast
-  field_simp [ne_of_gt (add_pos_of_pos_of_nonneg hservice_pos (zero_le _))]
+  field_simp [ne_of_gt (add_pos_of_pos_of_nonneg hservice_pos zero_le)]
 
 /-- At the physical M/M/1 rates, the uniformization clock rate times the
 `false`-mark probability is exactly the potential-service rate. -/
@@ -126,7 +126,7 @@ theorem uniformizedBirthProbability_pos_of_positive_arrival
       (mm1TrafficIntensityNN arrivalRate serviceRate) := by
   rw [uniformizedBirthProbability_eq_rate_fraction (lt_trans harrival_pos hstable)]
   exact div_pos harrival_pos
-    (add_pos_of_pos_of_nonneg harrival_pos (zero_le _))
+    (add_pos_of_pos_of_nonneg harrival_pos zero_le)
 
 theorem uniformizedArrivalMark_true_mass_ne_zero_of_rates_pos
     {arrivalRate serviceRate : ℝ≥0}

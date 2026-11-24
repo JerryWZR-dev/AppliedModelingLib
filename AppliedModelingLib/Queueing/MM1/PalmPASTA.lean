@@ -1,3 +1,4 @@
+import AppliedModelingLib.Queueing.MM1.GeometricCompat
 import AppliedModelingLib.Queueing.MM1.Palm.CountCertificateBridge
 import AppliedModelingLib.Queueing.MM1.GeometricStationary
 import AppliedModelingLib.Queueing.MM1.Stationary
@@ -25,7 +26,7 @@ theorem real_stationaryQueueLength_tail_of_geometric_hasLaw
     (H : PalmPASTAQueueLengthCertificate Ωbase Ωtag base tagged)
     (rho : ℝ) (hrho_nonneg : 0 ≤ rho) (hrho_lt_one : rho < 1)
     (hstationary : HasLaw H.stationaryQueueLength
-      (geometricMeasure (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
+      (geometricMeasureOld (p := 1 - rho) (sub_pos.mpr hrho_lt_one)
         (sub_le_self 1 hrho_nonneg)) base.Pbase)
     (k : ℕ) :
     base.Pbase.real {ω | k ≤ H.stationaryQueueLength ω} = rho ^ k := by
@@ -53,7 +54,7 @@ def toTaggedPASTAMM1CountCertificateOfGeometricStateLaw
     (response : Ωtag → ℝ)
     (hresponse_measurable : Measurable response)
     (hstationary : HasLaw H.stationaryQueueLength
-      (geometricMeasure (p := 1 - arrivalRate / service.rate)
+      (geometricMeasureOld (p := 1 - arrivalRate / service.rate)
         (sub_pos.mpr (Queueing.mm1TrafficIntensity_lt_one hstable service.rate_pos))
         (sub_le_self 1 (Queueing.mm1TrafficIntensity_nonneg
           (le_of_lt harrivalRate) service.rate_pos))) base.Pbase)
@@ -90,7 +91,7 @@ def toTaggedPASTAMM1CountCertificateOfGeometricStateLawAE
     (response : Ωtag → ℝ)
     (hresponse_measurable : Measurable response)
     (hstationary : HasLaw H.stationaryQueueLength
-      (geometricMeasure (p := 1 - arrivalRate / service.rate)
+      (geometricMeasureOld (p := 1 - arrivalRate / service.rate)
         (sub_pos.mpr (Queueing.mm1TrafficIntensity_lt_one hstable service.rate_pos))
         (sub_le_self 1 (Queueing.mm1TrafficIntensity_nonneg
           (le_of_lt harrivalRate) service.rate_pos))) base.Pbase)

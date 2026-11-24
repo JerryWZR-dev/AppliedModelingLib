@@ -1,3 +1,4 @@
+import AppliedModelingLib.Queueing.MM1.GeometricCompat
 import AppliedModelingLib.Foundations.Probability.PalmMarkedCampbell
 import AppliedModelingLib.Queueing.MM1.PalmPASTA
 import AppliedModelingLib.Foundations.Probability.ExponentialInterarrivalRenewalCountMarginal
@@ -272,7 +273,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarkedCampbellCertificate_physicalArr
       (rate := ((arrivalRate + serviceRate : ℝ≥0) : ℝ))
       (by
         exact_mod_cast
-          (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate)))
+          (add_pos_of_pos_of_nonneg harrival_pos zero_le))
       (mm1TrafficIntensityNN arrivalRate serviceRate)
       (mm1TrafficIntensityNN_lt_one hstable)
       (mm1TrafficIntensityNN_pos harrival_pos
@@ -2043,7 +2044,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarked_stationaryPalmPASTA_embeddedQu
     HasLaw
       (geoNNPMF_uniformized_forwardReverseMarked_stationaryPalmPASTACertificate
         hrate rho hrho hrho_pos).to_pasta.stationaryQueueLength
-      (geometricMeasure (p := 1 - (rho : ℝ))
+      (geometricMeasureOld (p := 1 - (rho : ℝ))
         (sub_pos.mpr (by exact_mod_cast hrho))
         (sub_le_self 1 (by positivity : 0 ≤ (rho : ℝ))))
       (geoNNPMF_uniformized_forwardReverseMarkedSuspensionShiftInvariantLaw_of_unmarkedIntPathShift
@@ -2082,7 +2083,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarked_stationaryPalmPASTA_embeddedQu
     (harrival_pos : 0 < arrivalRate) (hstable : arrivalRate < serviceRate) :
     let rate : ℝ := ((arrivalRate + serviceRate : ℝ≥0) : ℝ)
     let hrate : 0 < rate := by
-      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate))
+      exact_mod_cast (add_pos_of_pos_of_nonneg harrival_pos zero_le)
     let rho : ℝ≥0 := mm1TrafficIntensityNN arrivalRate serviceRate
     let hrho : rho < 1 := mm1TrafficIntensityNN_lt_one hstable
     let hrho_pos : 0 < rho := mm1TrafficIntensityNN_pos harrival_pos
@@ -2103,7 +2104,7 @@ theorem geoNNPMF_uniformized_forwardReverseMarked_stationaryPalmPASTA_embeddedQu
       (rate := ((arrivalRate + serviceRate : ℝ≥0) : ℝ))
       (by
         exact_mod_cast
-          (add_pos_of_pos_of_nonneg harrival_pos (zero_le serviceRate)))
+          (add_pos_of_pos_of_nonneg harrival_pos zero_le))
       (mm1TrafficIntensityNN arrivalRate serviceRate)
       (mm1TrafficIntensityNN_lt_one hstable)
       (mm1TrafficIntensityNN_pos harrival_pos (lt_trans harrival_pos hstable)) k)

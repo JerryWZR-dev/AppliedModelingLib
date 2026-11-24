@@ -1,3 +1,4 @@
+import Mathlib.Analysis.Calculus.Deriv.Mul
 import Mathlib.Analysis.Calculus.Deriv.Add
 import Mathlib.Analysis.Calculus.LocalExtr.Basic
 import Mathlib.Tactic

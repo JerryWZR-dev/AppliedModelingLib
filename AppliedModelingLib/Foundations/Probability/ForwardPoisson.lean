@@ -261,7 +261,7 @@ theorem count_hasLaw
         (fun ω : Ω => H.count t ω - H.count 0 ω) := by
     filter_upwards [H.count_zero_ae] with ω hzero
     simp [hzero]
-  simpa using (H.increment_hasLaw (s := 0) (t := t) (zero_le t)).congr hEq
+  simpa using (H.increment_hasLaw (s := 0) (t := t) (by positivity)).congr hEq
 
 /-- Real-valued Poisson PMF for the forward count at time `t`. -/
 theorem count_prob
