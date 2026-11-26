@@ -29,7 +29,7 @@ under this repository's Lean toolchain; the files contain no `sorry`,
 `NOTICE` file.  Redistribution must retain its Apache-2.0 attribution and
 license.
 
-The central Mathlib declarations used below are `integral_finset_sum`,
+The central Mathlib declarations used below are `integral_finsetSum`,
 `integral_sub`, and `norm_integral_le_of_norm_le_const` from
 [`MeasureTheory/Integral/Bochner/Basic.lean`](https://github.com/leanprover-community/mathlib4/blob/5450b53e5ddc75d46418fabb605edbf36bd0beb6/Mathlib/MeasureTheory/Integral/Bochner/Basic.lean),
 `integral_indicator_const` from
@@ -164,8 +164,8 @@ theorem abs_integral_piecewiseCellValue_sub_le
     intro piece
     exact Integrable.indicator (integrable_const _) (hcell piece)
   simp only [piecewiseCellValue]
-  rw [integral_finset_sum _ (fun piece _ => hintegrable_mu piece),
-    integral_finset_sum _ (fun piece _ => hintegrable_nu piece)]
+  rw [integral_finsetSum _ (fun piece _ => hintegrable_mu piece),
+    integral_finsetSum _ (fun piece _ => hintegrable_nu piece)]
   simp_rw [integral_indicator_const _ (hcell _), smul_eq_mul]
   rw [← Finset.sum_sub_distrib]
   calc

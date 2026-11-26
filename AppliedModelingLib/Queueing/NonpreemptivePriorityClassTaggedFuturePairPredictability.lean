@@ -1748,7 +1748,7 @@ theorem integral_stationaryPriorityClassTaggedStrictFutureWorkAtQueueWait_eq_str
     (multiclassStationaryPoissonWorkRestLaw arrivalRate harrivalRate i)).Ptag
   let W := ∫ z, stationaryPriorityClassTaggedQueueWait meanService i z ∂P
   unfold stationaryPriorityClassTaggedStrictFutureWorkAtQueueWait
-  rw [MeasureTheory.integral_finset_sum]
+  rw [MeasureTheory.integral_finsetSum]
   · calc
       ∑ j ∈ Finset.univ.filter (fun j => j < i),
           ∫ z, stationaryPriorityTaggedFutureWorkAggregate meanService i z j

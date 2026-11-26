@@ -749,7 +749,7 @@ theorem integral_truncatedStoppedReward
     dsimp [measure]
     infer_instance
   unfold truncatedStoppedReward
-  rw [MeasureTheory.integral_finset_sum]
+  rw [MeasureTheory.integral_finsetSum]
   · have htermIntegral (n : ℕ) :
         ∫ z, (if n ≤ τ z then reward (coordinate n z.2) else 0)
           ∂(ρ.prod (measure μ)) =

@@ -41,7 +41,7 @@ theorem integral_canonicalMarkedWork_over_marks
       ∂exponentialInterarrivalMeasure (1 : Real) =
       (canonicalRenewalCount t arrivalGaps : Real) := by
   unfold canonicalMarkedWork
-  rw [MeasureTheory.integral_finset_sum]
+  rw [MeasureTheory.integral_finsetSum]
   · simp_rw [integral_interarrival_eq_inv_rate (by norm_num : (0 : Real) < 1)]
     simp
   · intro n _
@@ -197,7 +197,7 @@ theorem integral_canonicalMarkedSquareWork_over_marks
       ∂exponentialInterarrivalMeasure (1 : Real) =
       2 * (canonicalRenewalCount t arrivalGaps : Real) := by
   unfold canonicalMarkedSquareWork
-  rw [MeasureTheory.integral_finset_sum]
+  rw [MeasureTheory.integral_finsetSum]
   · simp_rw [integral_sq_interarrival (by norm_num : (0 : Real) < 1)]
     simp
     ring

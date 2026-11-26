@@ -200,7 +200,7 @@ theorem multiaccuracyCorrelation_signedMeasureCoefficientPairIntegral
           ∂coefficient.positive) =
         ∑ round, (∫ omega, basis omega (contexts round) ∂coefficient.positive) *
           forecastResidual forecasts contexts outcomes round := by
-        rw [MeasureTheory.integral_finset_sum]
+        rw [MeasureTheory.integral_finsetSum]
         · apply Finset.sum_congr rfl
           intro round _
           rw [MeasureTheory.integral_mul_const]
@@ -213,7 +213,7 @@ theorem multiaccuracyCorrelation_signedMeasureCoefficientPairIntegral
           ∂coefficient.negative) =
         ∑ round, (∫ omega, basis omega (contexts round) ∂coefficient.negative) *
           forecastResidual forecasts contexts outcomes round := by
-        rw [MeasureTheory.integral_finset_sum]
+        rw [MeasureTheory.integral_finsetSum]
         · apply Finset.sum_congr rfl
           intro round _
           rw [MeasureTheory.integral_mul_const]

@@ -4901,7 +4901,7 @@ theorem integral_manyServerMarkedStateCenteredUnrealizedPotentialServicePartialS
     infer_instance
   letI : IsFiniteMeasure trajectory := by infer_instance
   unfold manyServerMarkedStateCenteredUnrealizedPotentialServicePartialSum
-  rw [MeasureTheory.integral_finset_sum]
+  rw [MeasureTheory.integral_finsetSum]
   · apply Finset.sum_eq_zero
     intro index _
     calc

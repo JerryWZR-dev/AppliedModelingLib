@@ -569,7 +569,7 @@ theorem integral_truncatedStoppedReward
       (∑ n ∈ Finset.range (cap + 1),
         (measure μ).real (τ.continuationEvent n)) * ∫ x, reward x ∂μ := by
   unfold truncatedStoppedReward
-  rw [MeasureTheory.integral_finset_sum]
+  rw [MeasureTheory.integral_finsetSum]
   · have htermIntegral (n : ℕ) :
         ∫ ω, (if n ≤ τ ω then reward (coordinate n ω) else 0) ∂measure μ =
           (measure μ).real (τ.continuationEvent n) * ∫ x, reward x ∂μ := by

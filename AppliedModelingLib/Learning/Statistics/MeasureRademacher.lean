@@ -808,7 +808,7 @@ theorem integral_empiricalMean_comp_eq_populationMean
           ∫ sample : Fin sampleCount → Outcome,
             value hypothesis (sample index) ∂
               Probability.finiteIIDSampleLaw law sampleCount := by
-            rw [integral_finset_sum Finset.univ (fun index _ => hintegrable index)]
+            rw [integral_finsetSum Finset.univ (fun index _ => hintegrable index)]
     _ = (sampleCount : ℝ)⁻¹ * ∑ _index : Fin sampleCount,
           populationMean law value hypothesis := by
             apply congrArg
@@ -1253,7 +1253,7 @@ theorem pmfExp_integral_signedPairedUniformDifferenceSet_eq_integral_pmfExp_sign
           ∑ signs : Fin sampleCount → Bool,
             (signLaw signs).toReal *
               signedPairedUniformDifferenceSet sampleCount value signs pairedSample ∂pairedLaw := by
-            exact (integral_finset_sum Finset.univ
+            exact (integral_finsetSum Finset.univ
               (fun signs _ => (hintegrable signs).const_mul (signLaw signs).toReal)).symm
 
 /-- Under the iid pair law, the first coordinate sample has the original iid

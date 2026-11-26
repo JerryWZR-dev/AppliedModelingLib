@@ -54,7 +54,7 @@ theorem finiteSubgradientAt_integral
         ∫ θ, FiniteDimensionalNorms.coordinateLinearFunctional
             (sampleGradient θ) (fun i => y i - x i) ∂μ := by
     simp only [coordinateLinearFunctional_apply]
-    rw [integral_finset_sum]
+    rw [integral_finsetSum]
     · exact Finset.sum_congr rfl fun i _ => (integral_mul_const _ _).symm
     · exact fun i _ => (hgrad i).mul_const _
   have hint :

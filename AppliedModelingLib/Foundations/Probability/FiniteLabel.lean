@@ -144,7 +144,7 @@ theorem sum_finiteLabelShare_eq_measureReal_univ
         = ∫ a, ∑ y : Y, finiteLabelIndicator label y a ∂μ := by
             unfold finiteLabelShare
             symm
-            exact MeasureTheory.integral_finset_sum
+            exact MeasureTheory.integral_finsetSum
               (s := (Finset.univ : Finset Y))
               (f := fun y a => finiteLabelIndicator label y a)
               (fun y _ => integrable_finiteLabelIndicator_of_measurable_finite μ hlabel y)
@@ -197,7 +197,7 @@ theorem sum_finiteLabelAggregateScore_eq_measureReal_univ_of_simplex
         = ∫ a, ∑ y : Y, score a y ∂μ := by
             unfold finiteLabelAggregateScore
             symm
-            exact MeasureTheory.integral_finset_sum
+            exact MeasureTheory.integral_finsetSum
               (s := (Finset.univ : Finset Y))
               (f := fun y a => score a y)
               (fun y _ => hscore y)

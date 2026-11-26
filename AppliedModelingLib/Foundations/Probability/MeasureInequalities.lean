@@ -4452,7 +4452,7 @@ theorem measureProb_biUnion_finset_bonferroni_odd
     calc
       (∫ ω, (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ)
           = ∑ t ∈ s.powersetCard k, ∫ ω, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0) ∂μ := by
-            refine MeasureTheory.integral_finset_sum (s := s.powersetCard k) ?_
+            refine MeasureTheory.integral_finsetSum (s := s.powersetCard k) ?_
             intro t ht
             exact hInnerInt k t ht
       _ = ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
@@ -4505,7 +4505,7 @@ theorem measureProb_biUnion_finset_bonferroni_odd
           = ∑ k ∈ Finset.range (m + 1), ∫ ω, ((-1 : ℝ)^k) *
               (∑ t ∈ s.powersetCard k,
                 (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ := by
-                exact MeasureTheory.integral_finset_sum (s := Finset.range (m + 1))
+                exact MeasureTheory.integral_finsetSum (s := Finset.range (m + 1))
                   (f := fun k ω => ((-1 : ℝ)^k) *
                     (∑ t ∈ s.powersetCard k,
                       (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0))
@@ -4688,7 +4688,7 @@ theorem measureProb_biUnion_finset_bonferroni_even
     calc
       (∫ ω, (∑ t ∈ s.powersetCard k, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ)
           = ∑ t ∈ s.powersetCard k, ∫ ω, (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0) ∂μ := by
-            refine MeasureTheory.integral_finset_sum (s := s.powersetCard k) ?_
+            refine MeasureTheory.integral_finsetSum (s := s.powersetCard k) ?_
             intro t ht
             exact hInnerInt k t ht
       _ = ∑ t ∈ s.powersetCard k, measureProb μ (fun a => ∀ i ∈ t, p i a) := by
@@ -4741,7 +4741,7 @@ theorem measureProb_biUnion_finset_bonferroni_even
           = ∑ k ∈ Finset.range (m + 1), ∫ ω, ((-1 : ℝ)^k) *
               (∑ t ∈ s.powersetCard k,
                 (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0)) ∂μ := by
-                exact MeasureTheory.integral_finset_sum (s := Finset.range (m + 1))
+                exact MeasureTheory.integral_finsetSum (s := Finset.range (m + 1))
                   (f := fun k ω => ((-1 : ℝ)^k) *
                     (∑ t ∈ s.powersetCard k,
                       (if ∀ i ∈ t, p i ω then (1 : ℝ) else 0))

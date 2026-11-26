@@ -501,7 +501,7 @@ theorem integral_stationaryPriorityTotalPastWorkAggregate
   calc
     ∫ omega, ∑ i, stationaryPriorityPastWorkAggregate meanService i omega t ∂π =
         ∑ i, ∫ omega, stationaryPriorityPastWorkAggregate meanService i omega t ∂π := by
-          exact MeasureTheory.integral_finset_sum Finset.univ fun i _ =>
+          exact MeasureTheory.integral_finsetSum Finset.univ fun i _ =>
             integrable_stationaryPriorityPastWorkAggregate
               arrivalRate meanService harrivalRate i t ht
     _ = ∑ i, arrivalRate i * meanService i * t := by
@@ -548,7 +548,7 @@ theorem integral_stationaryPriorityTotalPastSquareWorkAggregate
   calc
     ∫ omega, ∑ i, stationaryPriorityPastSquareWorkAggregate meanService i omega t ∂π =
         ∑ i, ∫ omega, stationaryPriorityPastSquareWorkAggregate meanService i omega t ∂π := by
-          exact MeasureTheory.integral_finset_sum Finset.univ fun i _ =>
+          exact MeasureTheory.integral_finsetSum Finset.univ fun i _ =>
             integrable_stationaryPriorityPastSquareWorkAggregate
               arrivalRate meanService harrivalRate i t ht
     _ = ∑ i, 2 * arrivalRate i * meanService i ^ 2 * t := by
@@ -1650,7 +1650,7 @@ theorem integral_stationaryPriorityTaggedTotalFutureWorkAggregate
         ∂(tagged.Ptag.prod passive.Pbase) =
         ∑ j, ∫ z, stationaryPriorityTaggedFutureWorkAggregate meanService i z j t
           ∂(tagged.Ptag.prod passive.Pbase) := by
-            exact MeasureTheory.integral_finset_sum Finset.univ fun j _ =>
+            exact MeasureTheory.integral_finsetSum Finset.univ fun j _ =>
               integrable_stationaryPriorityTaggedFutureWorkAggregate
                 arrivalRate meanService harrivalRate i j t ht
     _ = ∑ j, arrivalRate j * meanService j * t := by
