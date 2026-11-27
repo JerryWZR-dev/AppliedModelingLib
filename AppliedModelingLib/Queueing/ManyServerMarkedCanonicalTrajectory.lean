@@ -5242,7 +5242,7 @@ theorem integral_stationaryManyServerMarkedCanonical_unrealizedPotentialServiceC
     intro gap
     let count : ℕ := PoissonProcess.canonicalRenewalCount time gap
     change (∫ path, (∑ index ∈ Finset.range count, idle index path) ∂trajectory) = _
-    rw [integral_finset_sum]
+    rw [integral_finsetSum]
     · simp_rw [hidle_expect]
       simp [count]
     · intro index _
@@ -5444,7 +5444,7 @@ theorem manyServerMarkedCanonicalCenteredUnrealizedPotentialServiceCorrection_se
         (∫ path, compensator (path, gap) ∂trajectory) =
           ∑ index ∈ Finset.range count, ∫ path, idle index path ∂trajectory := by
       change (∫ path, (∑ index ∈ Finset.range count, idle index path) ∂trajectory) = _
-      rw [integral_finset_sum]
+      rw [integral_finsetSum]
       intro index _
       exact hidle_int index
     calc

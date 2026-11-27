@@ -2456,7 +2456,7 @@ theorem reflectedBottomKSum_eq_integral_rank_count_indicator
               (fun j : Fin n => reflectedSample M sample j ≤ x)).card ≤
               (topKRankEmbedding k n i).val
           then (1 : ℝ) else 0 := by
-          rw [MeasureTheory.integral_finset_sum]
+          rw [MeasureTheory.integral_finsetSum]
           intro i _hi
           exact ascendingOrderStatistic_rank_count_indicator_integrable
             (reflectedSample M sample) (topKRankEmbedding k n i)
@@ -3093,7 +3093,7 @@ theorem expectedSampleTopKSum_pi_eq_card_mul_integral_of_card_le
               (fun sample => sampleTopKSum_eq_sum_of_card_le sample k hnk))
     _ = ∑ i : Fin n, ∫ sample : Fin n → ℝ, sample i
             ∂MeasureTheory.Measure.pi (fun _ : Fin n => μ) := by
-          rw [MeasureTheory.integral_finset_sum]
+          rw [MeasureTheory.integral_finsetSum]
           intro i _hi
           simpa using
             (MeasureTheory.integrable_eval
@@ -3187,7 +3187,7 @@ theorem expectedReflectedBottomKSum_eq_sum_reflectedAscendingOrderStatistic
           ascendingOrderStatistic (reflectedSample M sample)
             (topKRankEmbedding k n i) ∂μ := by
   unfold expectedReflectedBottomKSum reflectedBottomKSum
-  exact MeasureTheory.integral_finset_sum Finset.univ
+  exact MeasureTheory.integral_finsetSum Finset.univ
     (fun i _hi => h_integrable i)
 
 /--
@@ -3270,7 +3270,7 @@ theorem expectedSampleTopKSum_eq_sum_expectedUpperOrderStatistic
       ∑ i : Fin (min k n),
         expectedUpperOrderStatistic μ (topKRankEmbedding k n i) := by
   unfold expectedSampleTopKSum expectedUpperOrderStatistic sampleTopKSum
-  exact MeasureTheory.integral_finset_sum Finset.univ
+  exact MeasureTheory.integral_finsetSum Finset.univ
     (fun i _hi => h_integrable i)
 
 /--
@@ -3518,7 +3518,7 @@ theorem expectedSampleOrderStatisticTopKSum_eq_expectedSampleTopKSum
     _ = ∫ sample,
           ∑ i ∈ Finset.range (min k a),
             sampleOrderStatisticValue sample (a - i) ∂μ := by
-          rw [MeasureTheory.integral_finset_sum]
+          rw [MeasureTheory.integral_finsetSum]
           exact h_integrable
     _ = ∫ sample,
           orderStatisticTopKSumFromMean

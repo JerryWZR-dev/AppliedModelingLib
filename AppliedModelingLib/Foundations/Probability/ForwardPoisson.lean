@@ -530,7 +530,7 @@ theorem integral_sq_centeredUnitIntervalCountPartialSum
   letI : IsProbabilityMeasure P := H.isProbability
   have hmean : ∫ omega, H.centeredUnitIntervalCountPartialSum steps omega ∂P = 0 := by
     rw [H.centeredUnitIntervalCountPartialSum_eq_sum]
-    rw [MeasureTheory.integral_finset_sum]
+    rw [MeasureTheory.integral_finsetSum]
     · exact Finset.sum_eq_zero fun index _ =>
         H.integral_centeredUnitIntervalCount (index + 1)
     · intro index _
@@ -928,7 +928,7 @@ theorem integral_truncatedStrictStoppedUnitIntervalCount
     rw [hindicator]
     exact (H.unitIntervalCount_real_integrable_at n).indicator
       (tau.measurableSet_continuationEvent n)
-  rw [MeasureTheory.integral_finset_sum (Finset.range cap) hintegrable, Finset.sum_mul]
+  rw [MeasureTheory.integral_finsetSum (Finset.range cap) hintegrable, Finset.sum_mul]
   apply Finset.sum_congr rfl
   intro n hn
   have hterm :

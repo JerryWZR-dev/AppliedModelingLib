@@ -1221,7 +1221,7 @@ theorem nonpreemptivePriorityTaggedPreServiceWork_eq_elapsed_of_advance_active_t
                 have hcompletionCount : totalNonpreemptivePriorityWorkJobs next + 1 =
                     totalNonpreemptivePriorityWorkJobs completedAt := by
                   apply totalNonpreemptivePriorityWorkJobs_complete_of_active completedAt active
-                  simp [completedAt, hactive, next]
+                  simp [completedAt, hactive]
                 have htimeCount : totalNonpreemptivePriorityWorkJobs completedAt =
                     totalNonpreemptivePriorityWorkJobs state := by rfl
                 omega

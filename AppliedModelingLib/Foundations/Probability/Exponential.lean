@@ -809,7 +809,7 @@ theorem maxSurvivalOfRate_integral_eq_finite_sum
     rw [maxSurvivalOfRate_expansion]
   rw [hcongr]
   rw [MeasureTheory.integral_neg]
-  rw [MeasureTheory.integral_finset_sum]
+  rw [MeasureTheory.integral_finsetSum]
   · congr 1
     refine Finset.sum_congr rfl ?_
     intro m hm
@@ -1307,7 +1307,7 @@ theorem Model.iidProductMeasure_sum_integral_eq_card_mul_expectedMaxValue_one
     ∫ sample,
         (∑ i : Fin q, sample i) ∂M.iidProductMeasure q =
       (q : ℝ) * M.expectedMaxValue 1 := by
-  rw [MeasureTheory.integral_finset_sum]
+  rw [MeasureTheory.integral_finsetSum]
   · simp [M.iidProductMeasure_eval_integral_eq_expectedMaxValue_one]
   · intro i _hi
     exact M.iidProductMeasure_eval_integrable i

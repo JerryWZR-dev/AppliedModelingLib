@@ -226,7 +226,7 @@ theorem integral_truncatedExternalWeightedStoppedReward
         (∫ z, if n ≤ τ z then weight n z.1 else 0 ∂(ρ.prod (measure μ))) *
           ∫ x, reward x ∂μ := by
   unfold truncatedExternalWeightedStoppedReward
-  rw [MeasureTheory.integral_finset_sum]
+  rw [MeasureTheory.integral_finsetSum]
   · apply Finset.sum_congr rfl
     intro n _
     exact integral_externalWeighted_continuationEvent_mul_coordinate

@@ -100,7 +100,7 @@ theorem integral_shiftedCenteredPartialSum
     (steps : ℕ) :
     ∫ omega, shiftedCenteredPartialSum Y means steps omega ∂μ = 0 := by
   rw [shiftedCenteredPartialSum_eq_sum]
-  rw [MeasureTheory.integral_finset_sum]
+  rw [MeasureTheory.integral_finsetSum]
   · apply Finset.sum_eq_zero
     intro index _
     rw [integral_sub (hY (index + 1)) (integrable_const _), integral_const,

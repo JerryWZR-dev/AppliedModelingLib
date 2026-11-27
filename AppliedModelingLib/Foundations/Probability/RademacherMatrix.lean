@@ -520,10 +520,10 @@ theorem integral_sq_sum_weightedSign_productMeasure
             weightedSign x row i * weightedSign x row j ∂μ) =
         ∑ i : Feature, ∑ j : Feature,
           ∫ row : Feature → Bool, weightedSign x row i * weightedSign x row j ∂μ := by
-    rw [integral_finset_sum]
+    rw [integral_finsetSum]
     · apply Finset.sum_congr rfl
       intro i _hi
-      rw [integral_finset_sum]
+      rw [integral_finsetSum]
       intro j _hj
       exact hterm_integrable i j
     · intro i _hi
@@ -699,7 +699,7 @@ theorem integral_l2Sq_measurement_scaledMatrix_rowsMeasure
         (measurement (scaledMatrix (Feature := Feature) (Coord := Coord) ω) x r) ^ 2
         ∂rowsMeasure Feature Coord) =
     ∑ i : Feature, x i ^ 2
-  rw [integral_finset_sum]
+  rw [integral_finsetSum]
   · have hscale : (Real.sqrt dR)⁻¹ ^ 2 = dR⁻¹ := by
       field_simp [hsqrt_ne]
       exact (Real.sq_sqrt (le_of_lt hdR_pos)).symm

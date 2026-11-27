@@ -714,7 +714,7 @@ theorem paretoUpperTailIntegral_eq_sum_kernel_integrals
             (Nat.choose q j : ℝ) *
               ((x ^ (-α)) ^ j *
                 (1 - x ^ (-α)) ^ (q - j)) := by
-          exact MeasureTheory.integral_finset_sum
+          exact MeasureTheory.integral_finsetSum
             (Finset.Icc (rankFromTop.val + 1) q)
             (fun j hj =>
               (paretoKernelIntegrableOn_Ioi_one

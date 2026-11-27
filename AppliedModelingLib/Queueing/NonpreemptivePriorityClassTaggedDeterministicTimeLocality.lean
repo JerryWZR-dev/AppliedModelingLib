@@ -1481,7 +1481,7 @@ theorem integral_sum_stationaryPriorityClassTaggedQueueWaitIndicator_mul_arrival
   let P := (Probability.Palm.targetPassiveTaggedArrivalAtZero
     (Probability.Queueing.stationaryPoissonWorkTaggedArrivalAtZero (harrivalRate i))
     (multiclassStationaryPoissonWorkRestLaw arrivalRate harrivalRate i)).Ptag
-  rw [MeasureTheory.integral_finset_sum]
+  rw [MeasureTheory.integral_finsetSum]
   · apply Finset.sum_congr rfl
     intro r hr
     simpa [P] using
@@ -1746,7 +1746,7 @@ theorem integral_cappedRightGridHorizon_eq_sum_queueWaitIndicator
         ∫ z : MulticlassStationaryPoissonWorkClassTaggedSample (Fin n) i,
           (if (r : ℝ) * width < stationaryPriorityClassTaggedQueueWait meanService i z then 1 else 0) *
             width ∂P := by
-          rw [MeasureTheory.integral_finset_sum]
+          rw [MeasureTheory.integral_finsetSum]
           intro r hr
           exact (integrable_stationaryPriorityClassTaggedQueueWaitIndicator
             arrivalRate meanService harrivalRate hmeanService hstable i ((r : ℝ) * width)).mul_const width

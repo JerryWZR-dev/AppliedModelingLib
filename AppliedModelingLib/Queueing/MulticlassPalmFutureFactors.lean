@@ -1898,7 +1898,7 @@ theorem integral_sum_multiclassStationaryPoissonWorkClassTaggedPassiveClassTimeS
             (Probability.Queueing.stationaryPoissonWorkTaggedArrivalAtZero (harrivalRate i))
             (multiclassStationaryPoissonWorkRestLaw arrivalRate harrivalRate i)).Ptag) *
           (arrivalRate j.1 * h) := by
-  rw [MeasureTheory.integral_finset_sum]
+  rw [MeasureTheory.integral_finsetSum]
   · apply Finset.sum_congr rfl
     intro r hr
     exact integral_multiclassStationaryPoissonWorkClassTaggedPassiveClassTimeSliceSelector_mul_arrivalCount
